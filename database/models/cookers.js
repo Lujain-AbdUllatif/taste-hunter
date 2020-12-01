@@ -24,4 +24,19 @@ const getCookerByEmail = (email) => {
       return res.rowsCount !== 0 ? res.rows[0] : "not found";
     });
 };
-module.exports = { getAllCookers, addCooker, getCookerByEmail };
+
+const updateCookerInfo = ({ id, name, password, work_address }) => {
+  return db
+    .query(
+      `UPDATE cookers set name=$1 ,password=$2, work_address=$3 where id = ${id} returning (name), (email), (work_address)`,
+      [name, password, work_address]
+    )
+    .then((response) => response.rows[0]);
+};
+
+module.exports = {
+  getAllCookers,
+  addCooker,
+  getCookerByEmail,
+  updateCookerInfo,
+};

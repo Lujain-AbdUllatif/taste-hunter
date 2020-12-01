@@ -48,8 +48,18 @@ const login = (req, res, next) => {
     .catch(next);
 };
 
+function update(req, res, next) {
+  model
+    .updateCookerInfo(req.body)
+    .then((updated) => {
+      console.log(updated);
+      res.send(updated);
+    })
+    .catch(next);
+}
 module.exports = {
   getAll,
   post,
   login,
+  update,
 };

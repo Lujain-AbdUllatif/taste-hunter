@@ -24,5 +24,7 @@ app.get("/dishes", dishes.getAll);
 
 app.post("/dishes", middleWare.verifyUser, dishes.post);
 
+app.put("/cookers", middleWare.verifyUser, cookers.update);
+
 // Handeling Errors
 app.use(handleErrors);
