@@ -16,4 +16,12 @@ const addCooker = ({ name, email, password, work_address }) => {
     )
     .then((response) => response.rows[0]);
 };
-module.exports = { getAllCookers, addCooker };
+
+const getCookerByEmail = (email) => {
+  return db
+    .query("SELECT * FROM cookers WHERE email=($1)", [email])
+    .then((res) => {
+      return res.rowsCount !== 0 ? res.rows[0] : "not found";
+    });
+};
+module.exports = { getAllCookers, addCooker, getCookerByEmail };

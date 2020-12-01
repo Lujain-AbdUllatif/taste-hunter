@@ -17,6 +17,8 @@ app.get("/cookers", cookers.getAll);
 
 app.post("/cookers", cookers.post);
 
+app.post("/cookers/login", cookers.login);
+
 // app.get("/dishes", dishes.getAll);
 
 // app.post('/dishes',dishes.post);
