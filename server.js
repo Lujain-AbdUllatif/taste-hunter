@@ -1,5 +1,7 @@
 const express = require("express");
-const handleErrors = require("./middleware/err");
+const { handleErrors } = require("./middleware/err");
+const cookers = require("./handlers/cookers");
+const dishes = require("./handlers/dishes");
 
 // Server set-up
 const app = express();
@@ -8,9 +10,16 @@ const server = app.listen(3000, () => {
 });
 
 // Uses go here
-server.use(express.json());
+app.use(express.json());
 
 // Routes set-up
+app.get("/cookers", cookers.getAll);
+
+// app.post("/cookers", cookers.post);
+
+// app.get("/dishes", dishes.getAll);
+
+// app.post('/dishes',dishes.post);
 
 // Handeling Errors
-server.use(handleErrors);
+app.use(handleErrors);
