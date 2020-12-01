@@ -1,1 +1,1 @@
-# taste-haunter
+# taste-hunter
