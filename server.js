@@ -15,7 +15,7 @@ app.use(express.json());
 // Routes set-up
 app.get("/cookers", cookers.getAll);
 
-// app.post("/cookers", cookers.post);
+app.post("/cookers", cookers.post);
 
 // app.get("/dishes", dishes.getAll);
 

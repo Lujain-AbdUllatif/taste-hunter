@@ -8,7 +8,17 @@ const getAll = (req, res, next) => {
     .catch(next);
 };
 
-const post = (req, res, next) => {};
+const post = (req, res, next) => {
+  const cooker = req.body;
+  model
+    .addCooker(cooker)
+    .then((cooker) => {
+      console.log(cooker);
+      const { password, ...resDetails } = cooker;
+      res.status(201).send(resDetails);
+    })
+    .catch(next);
+};
 
 module.exports = {
   getAll,
