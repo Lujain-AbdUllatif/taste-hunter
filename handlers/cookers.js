@@ -34,9 +34,10 @@ const login = (req, res, next) => {
       if (cooker === "not found") {
         res.status(404).send({ message: "User Not Found" });
       } else {
+        console.log(cooker);
         if (password === cooker.password) {
           const access_token = jwt.sign({ id: cooker.id }, SECRET, {
-            expiresIn: "1h",
+            expiresIn: "2h",
           });
           res.status(200).send({ email, access_token });
         } else {

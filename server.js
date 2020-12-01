@@ -2,6 +2,7 @@ const express = require("express");
 const { handleErrors } = require("./middleware/err");
 const cookers = require("./handlers/cookers");
 const dishes = require("./handlers/dishes");
+const middleWare = require("./middleware/auth");
 
 // Server set-up
 const app = express();
@@ -19,9 +20,9 @@ app.post("/cookers", cookers.post);
 
 app.post("/cookers/login", cookers.login);
 
-// app.get("/dishes", dishes.getAll);
+app.get("/dishes", dishes.getAll);
 
-// app.post('/dishes',dishes.post);
+app.post("/dishes", middleWare.verifyUser, dishes.post);
 
 // Handeling Errors
 app.use(handleErrors);
