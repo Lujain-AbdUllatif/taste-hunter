@@ -20,8 +20,16 @@ const deleteDish = (id) => {
     .then((response) => response.rows);
 };
 
+
+const dishesFilter = (cookerId)=> {
+  return db.query("SELECT * FROM dishes where cooker_id = $1", [cookerId])
+  .then ((response) => response.rows);
+}
+
+
 module.exports = {
   getAllDishes,
   addNewDish,
   deleteDish,
+  dishesFilter
 };

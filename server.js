@@ -30,5 +30,7 @@ app.post("/dishes", middleWare.verifyUser, dishes.post);
 
 app.put("/cookers", middleWare.verifyUser, cookers.update);
 
+app.get("/cookers/dishes/:cookerid", dishes.dishesFilter);
+
 // Handeling Errors
 app.use(handleErrors);
