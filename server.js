@@ -2,6 +2,7 @@ const express = require("express");
 const { handleErrors } = require("./middleware/err");
 const cookers = require("./handlers/cookers");
 const dishes = require("./handlers/dishes");
+const users = require("./handlers/users");
 const middleWare = require("./middleware/auth");
 
 // Server set-up
@@ -13,22 +14,26 @@ const server = app.listen(3000, () => {
 // Uses go here
 app.use(express.json());
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: false }));
 
 // Routes set-up
-app.get("/cookers", cookers.getAll);
 
-app.post("/cookers", cookers.post);
+app
+  .route("/cookers(/api_key=:api_key)?")
+  .get(middleWare.verify, cookers.getAll)
+  .post(cookers.post)
+  .put(middleWare.verifyCooker, cookers.update);
 
 app.post("/cookers/login", cookers.login);
 
-app.get("/dishes", dishes.getAll);
+app
+  .route("/dishes")
+  .get(dishes.getAll)
+  .post(middleWare.verifyCooker, dishes.post);
 
 app.delete("/dishes/:id", dishes.delDish);
 
-app.post("/dishes", middleWare.verifyUser, dishes.post);
-
-app.put("/cookers", middleWare.verifyUser, cookers.update);
+app.post("/register", users.registerUser);
 
 app.get("/cookers/dishes/:cookerid", dishes.dishesFilter);
 

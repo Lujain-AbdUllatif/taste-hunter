@@ -1,12 +1,12 @@
 BEGIN;
 
 DROP TABLE IF EXISTS cookers,
-dishes CASCADE;
+dishes, users CASCADE;
 
 CREATE TABLE cookers (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
-  email VARCHAR(100) NOT NULL UNIQUE,
+  email VARCHAR(100) NOT NULL,
   password VARCHAR(50) NOT NULL,
   work_address VARCHAR(255) NOT NULL
 );
@@ -20,6 +20,11 @@ CREATE TABLE dishes (
   category VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(100) NOT NULL,
+  password VARCHAR(50) NOT NULL
+);
 
 INSERT INTO cookers (name, email, password, work_address)
 VALUES (
@@ -92,5 +97,27 @@ VALUES (
     5
   )
   ;
+
+INSERT INTO users ( email, password)
+VALUES (
+    'Seren@mail.com',
+    '123123'
+  ),
+  (
+    'Noterdam@mail.com',
+    '123123'
+  ),
+  (
+    'Mouris@mail.com',
+    '123123'
+  ),
+  (
+    'Sport@mail.com',
+    '123123'
+  ),
+  (
+    'Prens@mail.com',
+    '123123'
+  );
 
 COMMIT;
