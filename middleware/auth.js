@@ -7,7 +7,8 @@ const verifyUser = (req, res, next) => {
   if (authorization) {
     try {
       const cooker_id = jwt.verify(authorization, SECRET).id;
-      req.body.id = cooker_id;
+      console.log('cookerId', cooker_id)
+      req.body.cooker_id = cooker_id;
       next();
     } catch (error) {
       const err = new Error("Invalid token");
