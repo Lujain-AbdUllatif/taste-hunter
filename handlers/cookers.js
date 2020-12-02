@@ -5,7 +5,6 @@ const { getCookerByEmail } = require("../database/models/cookers");
 const SECRET = process.env.JWT_SECRET;
 
 const getAll = (req, res, next) => {
-  console.log("req.params >> ", req.params);
   model
     .getAllCookers()
     .then((cookers) => {

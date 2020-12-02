@@ -1,13 +1,16 @@
 const express = require("express");
-const dogsRouter = express.Router();
-const dishes = require("../handlers/dishes");
+const middleWare = require("../middleware/auth");
+const dishesHandle = require("../handlers/dishes");
+const dishesFiltersRouter = require("./dishes_filters");
+const router = express.Router({ mergeParams: true });
 
-router.get("/", dishes.getAll);
+router.use("/filters", dishesFiltersRouter);
 
-module.exports = dogsRouters;
+router
+  .route("(/api_key=:api_key)?")
+  .get(middleWare.verify, dishesHandle.getAll)
+  .post(middleWare.verifyCooker, dishesHandle.post);
 
-// app.get("/dishes", dishes.getAll);
+router.delete("/:id", middleWare.verifyCooker, dishesHandle.delDish); // must have verification cooker befor deleting
 
-// app.delete("/dishes/:id", dishes.delDish);
-
-// app.post("/dishes", middleWare.verifyUser, dishes.post);
+module.exports = router;

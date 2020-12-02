@@ -1,8 +1,11 @@
 const express = require("express");
 const { handleErrors } = require("./middleware/err");
-const cookers = require("./handlers/cookers");
 const dishes = require("./handlers/dishes");
+const users = require("./handlers/users");
 const middleWare = require("./middleware/auth");
+const cookersRouter = require("./routers/cookers");
+const dishesRouter = require("./routers/dishes");
+const usersRouter = require("./routers/users");
 
 // Server set-up
 const app = express();
@@ -13,24 +16,16 @@ const server = app.listen(3000, () => {
 // Uses go here
 app.use(express.json());
 
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: false }));
 
 // Routes set-up
-app.get("/cookers", cookers.getAll);
+app.use("/cookers", cookersRouter);
 
-app.post("/cookers", cookers.post);
+app.use("/dishes", dishesRouter);
 
-app.post("/cookers/login", cookers.login);
+app.use("/users", usersRouter);
 
-app.get("/dishes", dishes.getAll);
 
-app.delete("/dishes/:id", dishes.delDish);
-
-app.post("/dishes", middleWare.verifyUser, dishes.post);
-
-app.put("/cookers", middleWare.verifyUser, cookers.update);
-
-app.get("/cookers/dishes/:cookerid", dishes.dishesFilter);
 
 // Handeling Errors
 app.use(handleErrors);
