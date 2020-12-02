@@ -13,6 +13,8 @@ const server = app.listen(3000, () => {
 // Uses go here
 app.use(express.json());
 
+app.use(express.urlencoded());
+
 // Routes set-up
 app.get("/cookers", cookers.getAll);
 
@@ -21,6 +23,8 @@ app.post("/cookers", cookers.post);
 app.post("/cookers/login", cookers.login);
 
 app.get("/dishes", dishes.getAll);
+
+app.delete("/dishes/:id", dishes.delDish);
 
 app.post("/dishes", middleWare.verifyUser, dishes.post);
 
