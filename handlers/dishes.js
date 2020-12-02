@@ -20,7 +20,18 @@ const post = (req, res, next) => {
     .catch(next);
 };
 
+function delDish(req, res, next) {
+  const dishId = parseInt(req.params.id);
+  model
+    .deleteDish(dishId)
+    .then(() => {
+      res.status(202).send({ msg: "Dish deleted successfully" });
+    })
+    .catch(next);
+}
+
 module.exports = {
   getAll,
   post,
+  delDish,
 };

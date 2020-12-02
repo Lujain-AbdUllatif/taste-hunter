@@ -14,7 +14,14 @@ const addNewDish = ({ cooker_id, name, description, price, category }) => {
     .then((response) => response.rows[0]);
 };
 
+const deleteDish = (id) => {
+  return db
+    .query("delete from dishes where id = $1", [id])
+    .then((response) => response.rows);
+};
+
 module.exports = {
   getAllDishes,
   addNewDish,
+  deleteDish,
 };
