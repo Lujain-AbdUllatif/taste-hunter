@@ -14,7 +14,9 @@ It is an easy plateform, convenience editing, and most importantly *secured*!
 ## Usage
 We have an ordered REST-API in your service;
 
-* as a *Cooker* you can sign in using the post route for the url "/cooker" passing your a json with your email and password as:  
+as a ***Cooker***   
+
+- You can sign up using the post route for the url "/cooker" passing your a json with your email and password as:  
 {  
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: "youremail@gmail.com,  
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password: "yourPassword"  
@@ -49,6 +51,15 @@ We return an access token you should keep for future services;
 - You can also view all the dishes in our database by submitting a get request using the url "/dishes" passing the access token value in the your request "authentication" header.
 
 - You can delete a dish from your dishes by submitting a delete request for the url "/dishes/your_dish_id", don't forget to provide us with the access token in the request "authentication" header.
+
+
+as a ***user***
+
+- You can sign up by submitting a post request to then url "/users/" providing 
+
+- We provide you with an API key for life that you can use to access our data, you must concatenate it to the end of the url for every request you make in the following formate :: "request_url/api_key=YOUR_API_KEY". 
+
+- 
 
 
 
