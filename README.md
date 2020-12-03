@@ -16,8 +16,8 @@ We have an ordered REST-API in your service;
 
 * as a *Cooker* you can sign in using the post route for the url "/cooker" passing your a json with your email and password as:  
 {  
- \\temail: "youremail@gmail.com,  
- \\tpassword: "yourPassword"  
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: "youremail@gmail.com,  
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password: "yourPassword"  
 }  
 We return an access token you should keep for future services;
 
