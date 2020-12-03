@@ -55,14 +55,14 @@ We return an access token you should keep for future services;
 
 as a ***user***
 
-- You can sign up by submitting a post request to then url "/users/" providing 
+- You can sign up by submitting a post request to then url "/users/" providing your email and password as json:  
+{  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: "youremail@gmail.com,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password: "yourPassword"  
+}  
 
-- We provide you with an API key for life that you can use to access our data, you must concatenate it to the end of the url for every request you make in the following formate :: "request_url/api_key=YOUR_API_KEY". 
-
-- 
-
-
-
+- We provide you with an API key for life that you can use to access our data, you must concatenate it to the end of the url for every request you make in the following formate :: "request_url/api_key=YOUR_API_KEY".  
+You can then use get requests like the cookers as desribed above.
 
 # built-by:
 - JS6
