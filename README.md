@@ -23,29 +23,27 @@ We return an access token you should keep for future services;
 
 - You can also view your competitor cookers by submitting a get request using the url "/cookers" passing the access token value in the your request "authentication" header.  
 
-- You can also update your profile by submiting a put request for the url "/cookers" and providing your access token as clearefied above and the updated fields as a json like so:
-<br/>
-{
-  name: "yourNewName", 
-  password: "newPassword", 
-  work_address : "yourUpdatedWorkAddress" 
-}
+- You can also update your profile by submiting a put request for the url "/cookers" and providing your access token as clearefied above and the updated fields as a json like so:  
+{  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "yourNewName",  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password: "newPassword",   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;work_address : "yourUpdatedWorkAddress"  
+}  
 
-- For application uses, you can also login with a post request using the url "/cookers" as a cooker passing your email and password as a json in the request body:
-\n
-{
-  email: "youremail@gmail.com,
-  password: "yourPassword"
-}
+- For application uses, you can also login with a post request using the url "/cookers" as a cooker passing your email and password as a json in the request body:  
+{  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;email: "youremail@gmail.com,  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password: "yourPassword"  
+}  
 
 ** Be ware that your access token is expired within two hours from the creation!
 
-- You can also add your tasty dishes by submitting a post request for the url "/dishes" providing the access token in the "authentication" header of your request as mentioned above. and request body should be provided with name, description, price, category of the dish as a json:
-{
-  name: "yourName",
-  description: "dishDescription", 
-  price: "inDollar", 
-  category: "category"
+- You can also add your tasty dishes by submitting a post request for the url "/dishes" providing the access token in the "authentication" header of your request as mentioned above. and request body should be provided with name, description, price, category of the dish as a json:  
+{  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: "yourName",  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: "dishDescription",   
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;price: "inDollar",  
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;category: "category"  
 }
 
 - You can also view all the dishes in our database by submitting a get request using the url "/dishes" passing the access token value in the your request "authentication" header.
