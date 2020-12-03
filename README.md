@@ -14,7 +14,7 @@ It is an easy plateform, convenience editing, and most importantly *secured*!
 ## Usage
 We have an ordered REST-API in your service;
 
-* as a *Cooker* you can sign in using the post route for the url "/cooker" passing your a json with your email and password as:
+* as a *Cooker* you can sign in using the post route for the url "/cooker" passing your a json with your email and password as
 {
   email: "youremail@gmail.com,
   password: "yourPassword"
@@ -24,6 +24,7 @@ We return an access token you should keep for future services;
 - You can also view your competitor cookers by submitting a get request using the url "/cookers" passing the access token value in the your request "authentication" header.  
 
 - You can also update your profile by submiting a put request for the url "/cookers" and providing your access token as clearefied above and the updated fields as a json like so:
+<br>
 {
   name: "yourNewName", 
   password: "newPassword", 
@@ -31,6 +32,7 @@ We return an access token you should keep for future services;
 }
 
 - For application uses, you can also login with a post request using the url "/cookers" as a cooker passing your email and password as a json in the request body:
+\n
 {
   email: "youremail@gmail.com,
   password: "yourPassword"
