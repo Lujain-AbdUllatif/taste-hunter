@@ -9,7 +9,6 @@ const verifyCooker = (req, res, next) => {
   if (authorization) {
     try {
       const cooker_id = jwt.verify(authorization, SECRET).id;
-      console.log('cookerId', cooker_id)
       req.body.cooker_id = cooker_id;
       next();
     } catch (error) {
