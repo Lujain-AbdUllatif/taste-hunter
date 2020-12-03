@@ -8,8 +8,9 @@ const dishesRouter = require("./routers/dishes");
 const usersRouter = require("./routers/users");
 
 // Server set-up
+const PORT = process.env.PORT || 3000;
 const app = express();
-const server = app.listen(3000, () => {
+const server = app.listen(PORT, () => {
   console.log("Listening at http://localhost:3000");
 });
 
@@ -24,8 +25,6 @@ app.use("/cookers", cookersRouter);
 app.use("/dishes", dishesRouter);
 
 app.use("/users", usersRouter);
-
-
 
 // Handeling Errors
 app.use(handleErrors);
