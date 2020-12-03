@@ -1,3 +1,4 @@
+const { response } = require("express");
 const db = require("../connection");
 
 const getAllCookers = () => {
@@ -9,12 +10,20 @@ const getAllCookers = () => {
 };
 
 const addCooker = ({ name, email, password, work_address }) => {
-  return db
-    .query(
-      `insert into cookers (name, email, password, work_address) values ($1,$2,$3,$4) returning (id) , (name), (email), (password)`,
-      [name, email, password, work_address]
-    )
-    .then((response) => response.rows[0]);
+  getCookerByEmail(email).then((response) => {
+    if (response === "not found") {
+      return db
+        .query(
+          `insert into cookers (name, email, password, work_address) values ($1,$2,$3,$4) returning (id) , (name), (email), (password)`,
+          [name, email, password, work_address]
+        )
+        .then((response) => response.rows[0]);
+    } else {
+      const err = new Error("user already exist");
+      err.status = 401;
+      throw err;
+    }
+  });
 };
 
 const getCookerByEmail = (email) => {
