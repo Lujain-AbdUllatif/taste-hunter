@@ -31,6 +31,7 @@ const login = (req, res, next) => {
     .getCookerByEmail(email)
     .then((cooker) => {
       //MUST update the post route so the email is unique for every cooker
+
       if (cooker === "not found") {
         res.status(404).send({ message: "User Not Found" });
       } else {

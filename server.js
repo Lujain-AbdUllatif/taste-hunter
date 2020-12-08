@@ -8,7 +8,7 @@ const dishesRouter = require("./routers/dishes");
 const usersRouter = require("./routers/users");
 
 // Server set-up
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 const app = express();
 const server = app.listen(PORT, () => {
   console.log("Listening at http://localhost:3000");

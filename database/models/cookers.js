@@ -30,7 +30,7 @@ const getCookerByEmail = (email) => {
   return db
     .query("SELECT * FROM cookers WHERE email=($1)", [email])
     .then((res) => {
-      return res.rowsCount !== 0 ? res.rows[0] : "not found";
+      return res.rowCount !== 0 ? res.rows[0] : "not found";
     });
 };
 
