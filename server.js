@@ -11,7 +11,7 @@ const usersRouter = require("./routers/users");
 const PORT = process.env.PORT || 4000;
 const app = express();
 const server = app.listen(PORT, () => {
-  console.log("Listening at http://localhost:3000");
+  console.log("Listening at http://localhost:4000");
 });
 
 // Uses go here
