@@ -10,7 +10,7 @@ const getAllCookers = () => {
 };
 
 const addCooker = ({ name, email, password, work_address }) => {
-  getCookerByEmail(email).then((response) => {
+  return getCookerByEmail(email).then((response) => {
     if (response === "not found") {
       return db
         .query(

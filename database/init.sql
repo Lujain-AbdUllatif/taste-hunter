@@ -7,7 +7,7 @@ CREATE TABLE cookers (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
   email VARCHAR(100) NOT NULL,
-  password VARCHAR(50) NOT NULL,
+  password VARCHAR(255) NOT NULL,
   work_address VARCHAR(255) NOT NULL
 );
 
@@ -23,7 +23,7 @@ CREATE TABLE dishes (
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   email VARCHAR(100) NOT NULL,
-  password VARCHAR(50) NOT NULL
+  password VARCHAR(255) NOT NULL
 );
 
 INSERT INTO cookers (name, email, password, work_address)
