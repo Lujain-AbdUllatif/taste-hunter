@@ -2,7 +2,6 @@ require("dotenv").config();
 const model = require("../database/models/cookers");
 const jwt = require("jsonwebtoken");
 const { getCookerByEmail } = require("../database/models/cookers");
-const bcrypt = require("bcryptjs");
 const SECRET = process.env.JWT_SECRET;
 
 const getAll = (req, res, next) => {
@@ -15,20 +14,13 @@ const getAll = (req, res, next) => {
 };
 
 const post = (req, res, next) => {
-  let { password, ...resCooker } = req.body;
-  bcrypt
-    .genSalt(12)
-    .then((salt) => bcrypt.hash(password, salt))
-    .then((hashedPassword) => {
-      password = hashedPassword;
-      model
-        .addCooker({ password, ...resCooker })
-        .then((cooker) => {
-          console.log(cooker);
-          const { password, ...resDetails } = cooker;
-          res.status(201).send(resDetails);
-        })
-        .catch(next);
+  const cooker = req.body;
+  model
+    .addCooker(cooker)
+    .then((cooker) => {
+      console.log(cooker);
+      const { password, ...resDetails } = cooker;
+      res.status(201).send(resDetails);
     })
     .catch(next);
 };
@@ -45,19 +37,14 @@ const login = (req, res, next) => {
       } else {
         console.log(cooker);
         const { id, password: cookerPassword, ...resCooker } = cooker;
-        bcrypt
-          .compare(password, cookerPassword)
-          .then((match) => {
-            if (match) {
-              const access_token = jwt.sign({ id }, SECRET, {
-                expiresIn: "2h",
-              });
-              res.status(200).send({ ...resCooker, access_token });
-            } else {
-              res.status(403).send({ message: "Wrong Password" });
-            }
-          })
-          .catch(next);
+        if (password === cookerPassword) {
+          const access_token = jwt.sign({ id }, SECRET, {
+            expiresIn: "2h",
+          });
+          res.status(200).send({ ...resCooker, access_token });
+        } else {
+          res.status(403).send({ message: "Wrong Password" });
+        }
       }
     })
     .catch(next);
