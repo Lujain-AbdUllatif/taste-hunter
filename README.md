@@ -72,7 +72,7 @@ You can then use get requests like the cookers as desribed above.
 - Insomnia
 
 # Developers:
-- Luijain @Lujain-AbdUllatif
+- Lujain @Lujain-AbdUllatif
 - Hala @halaassaly
 - Ammar @Ammaryus
 - Muhammad @Muhammad Khamaisi
