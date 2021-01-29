@@ -38,7 +38,6 @@ We return an access token you should keep for future services;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;password: "yourPassword"  
 }  
 
-** Be ware that your access token is expired within two hours from the creation!
 
 - You can also add your tasty dishes by submitting a post request for the url "/dishes" providing the access token in the "authentication" header of your request as mentioned above. and request body should be provided with name, description, price, category of the dish as a json:  
 {  
@@ -53,7 +52,7 @@ We return an access token you should keep for future services;
 - You can delete a dish from your dishes by submitting a delete request for the url "/dishes/your_dish_id", don't forget to provide us with the access token in the request "authentication" header.
 
 
-as a ***user***
+as a ***User***
 
 - You can sign up by submitting a post request to then url "/users/" providing your email and password as json:  
 {  
