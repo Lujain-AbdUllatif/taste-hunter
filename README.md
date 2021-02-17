@@ -9,8 +9,6 @@ Our data can be used also by developers and those interested in this kind of dat
 
 It is an easy plateform, convenience editing, and most importantly *secured*!
 
-
-# Documentation
 ## Usage
 We have an ordered REST-API in your service;
 
@@ -63,12 +61,12 @@ as a ***User***
 - We provide you with an API key for life that you can use to access our data, you must concatenate it to the end of the url for every request you make in the following formate :: "request_url/api_key=YOUR_API_KEY".  
 You can then use get requests like the cookers as desribed above.
 
-# Main Technologies
+## Main Technologies
 - Node.js
 - Express.js
 - PostgreSQL
 
-# Team 
+## Team 
 - [Lujain Abd-Ullatif](https://github.com/Lujain-AbdUllatif)
 - [Hala Assaly](https://github.com/halaassaly)
 - [Ammar Yussef](https://github.com/Ammaryus)
