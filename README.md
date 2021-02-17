@@ -64,14 +64,12 @@ as a ***User***
 You can then use get requests like the cookers as desribed above.
 
 # built-by:
-- JS6
-- EXPRESS
-- NODE.JS
-- SQL
-- Insomnia
+- Node.js
+- Express.js
+- PostgreSQL
 
 # Developers:
-- Lujain @Lujain-AbdUllatif
-- Hala @halaassaly
-- Ammar @Ammaryus
-- Muhammad @Muhammad Khamaisi
+- [Lujain Abd-Ullatif](https://github.com/Lujain-AbdUllatif)
+- [Hala Assaly](https://github.com/halaassaly)
+- [Ammar Yussef](https://github.com/Ammaryus)
+- [Muhammad Khamaisi](https://github.com/muhkham)
